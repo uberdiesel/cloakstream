@@ -63,15 +63,16 @@ if(isset($_POST['install'])){
 		exec("ln -s ".$sickbeard_images." show_images");
 		echo "install completed";	
 		?><br>
-Your settings in /etc/apache2/httpd.conf should look like this:<br>
-<pre style="background-color:#CCCCCC">ScriptAlias <?=$_POST['AuthTokenPrefix']?> /
+This section should be addeed to your apache virtual host settings<br>
+(ex: /etc/apache2/sites-enabled/000-default)<br>
+<pre style="background-color:#CCCCCC">	ScriptAlias <?=$_POST['AuthTokenPrefix']?> /
 
 # Token settings
 &lt;Location <?=$_POST['AuthTokenPrefix']?>&gt;     
-AuthTokenSecret       &quot;<?=$_POST['AuthTokenSecret']?>&quot;      
-AuthTokenPrefix       <?=$_POST['AuthTokenPrefix']?>  
-# 3 hours time limit on files
-AuthTokenTimeout      10800
+	AuthTokenSecret       &quot;<?=$_POST['AuthTokenSecret']?>&quot;      
+	AuthTokenPrefix       <?=$_POST['AuthTokenPrefix']?>  
+	# 3 hours time limit on files
+	AuthTokenTimeout      10800
 &lt;/Location&gt;
 </pre>
         
