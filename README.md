@@ -3,7 +3,7 @@
 CloakStream is a php web frontend for an existing Sick-Beard installation for the purpose of video streaming.
 
 ##Requirements
-* Apache
+* Apache with PHP and SQLite3 support
 * [mod_auth_token](http://code.google.com/p/mod-auth-token/)
 * [mod_h264_streaming](http://h264.code-shop.com/trac/wiki/Mod-H264-Streaming-Apache-Version2)
 * an existing [Sick-Beard](https://github.com/midgetspy/Sick-Beard) installation

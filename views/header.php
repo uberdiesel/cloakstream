@@ -9,10 +9,10 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="height=device-height,width=device-width" />
-    <link rel="stylesheet" href="core.css" type="text/css" />
-    <script type="text/javascript" src="jwplayer.js"></script>
+    <link rel="stylesheet" href="css/core.css" type="text/css" />
+    <script type="text/javascript" src="js/jwplayer.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="core.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
     <style>
 		#episode {
 			margin: 0 auto;
