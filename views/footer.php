@@ -3,7 +3,7 @@
         <b>Server load:</b> <?=$core->server_load();?>
         <div style="float:right;">Problem with any material on <?=$config['site_title']?>? 
         	<div class="b_link" style="display:inline;margin-right:50px;">
-                <a href="<?=$config['contact']?>"><u>Contact Us</u></a> 
+                <a href="mailto:<?=$config['contact']?>"><u>Contact Us</u></a> 
                 <!--(Don't send anything other than official requests, it will be ignored.)-->
             </div>
             <b><?=$config['site_title']?></b> 
