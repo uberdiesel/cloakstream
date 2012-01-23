@@ -63,10 +63,12 @@
             <div id="results_container"><br>
                 <? foreach($episodes as $i=>$row){?>
                 <div class="<? if(($i%2)==0) echo "epEven"; else echo "epOdd";?>">
+                    <? if(file_exists('show_images/'.$row['tvdb_id'].'.banner.jpg')) { ?>
                     <div class="showimage siright">
                         <img height="75" src='show_images/<?=$row['tvdb_id']?>.banner.jpg' title="<?=$row['show_name']?>" />
                         <div class="imageover">&nbsp;</div>
                     </div>
+                    <? } ?>
                     <p class="epTitle">
                         <a href="<?=$_SERVER['PHP_SELF']?>?v=<?=$row['episode_id']?>"><?=$row['show_name']?>: <?=$row['season']?>x<?=$row['episode']?> - <?=$row['name']?></a>
                     </p>
