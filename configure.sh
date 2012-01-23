@@ -1,11 +1,12 @@
 sudo apt-get update
 
 ### START CLOAKSTREAM CONFIG
-sudo apt-get --assume-yes install git-core
+#sudo apt-get --assume-yes install git-core
 sudo apt-get --assume-yes install php5-sqlite
 
-git clone git://github.com/uberdiesel/cloakstream
-chown www-data cloakstream
+#git clone git://github.com/uberdiesel/cloakstream
+#chown www-data cloakstream
+chown www-data .
 
 mkdir temp
 cd temp
