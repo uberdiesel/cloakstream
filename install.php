@@ -56,11 +56,11 @@ if(isset($_POST['install'])){
 	
 	
 	if(count($errors)==0){
-		/*if(file_exists("show_images")){
+		if(file_exists("show_images")){
 			unlink("show_images");
 			echo "deleted old show_images<br>";
 		}
-		exec("ln -s ".$sickbeard_images." show_images");*/
+		exec("ln -s ".$sickbeard_images." show_images");
 		echo "install completed";	
 		?><br>
 Your settings in /etc/apache2/httpd.conf should look like this:<br>
