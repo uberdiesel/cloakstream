@@ -9,7 +9,7 @@ CloakStream is a php web frontend for an existing Sick-Beard installation for th
 * an existing [Sick-Beard](https://github.com/midgetspy/Sick-Beard) installation
 
 ##How it works
-* CloakStream looks through your [Sick-Beard](https://github.com/midgetspy/Sick-Beard) database for any files with the .mp4 extension, and serves them up to you in the browsser.
+* CloakStream looks through your [Sick-Beard](https://github.com/midgetspy/Sick-Beard) database for any files with the .mp4 extension, and serves them up to you in the browser.
 
 ##Installation
 * once you have met the Requirements listed above, download CloakStream and put all the files somewhere under your apache DocumentRoot (visible to the web)
