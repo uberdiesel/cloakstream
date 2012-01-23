@@ -13,5 +13,6 @@ CloakStream is a php web frontend for an existing Sick-Beard installation for th
 
 ##Installation
 * once you have met the Requirements listed above, download CloakStream and put all the files somewhere under your apache DocumentRoot (visible to the web)
+* run `sudo ./configure.sh` to install mod_auth_token and mod_h264_streaming automatically
 * then go to your browser and navigate to the url of your installation and go to the install.php file and follow follow the prompts
 * once you run install.php, and the config file is written, you should delete install.php so noone can use it to reconfigure your installation
