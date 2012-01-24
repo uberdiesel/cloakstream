@@ -10,6 +10,8 @@ CloakStream is a php web frontend for an existing Sick-Beard installation for th
 
 ##How it works
 * CloakStream looks through your [Sick-Beard](https://github.com/midgetspy/Sick-Beard) database for any files with the .mp4 extension, and serves them up to you in the browser.
+* You can use a video conversion tool such as HandBrake to convert your existing library to mp4 with h.x264 encoding `HandBrakeCLI -i file.avi -o 
+file.mp4 -e x264`
 
 ##Installation
 * once you have met the Requirements listed above, download CloakStream and put all the files somewhere under your apache DocumentRoot (visible to the web)
