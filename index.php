@@ -6,6 +6,7 @@ session_start();
 if(isset($_GET['view'])){
 	if($_GET['view']=="latest_episodes"){
 		$episodes = $db->new_episodes();
+		$title = "Latest Episodes";
 		include('views/latest.php');
 		/*foreach($latest as $l){
 			echo $l['show_name'].": ".$core->ordinal_to_datetime($l['airdate'])->format('l, M jS')."<br />";	
