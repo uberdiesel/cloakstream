@@ -23,7 +23,7 @@
                     jwplayer("mediaplayer").setup({
                         //file: "stream.php?c=<?=$code?>",
                         file: "<?=$url?>",
-						'image': 'http://uberdiesel.org/uberdieselmedia/layer1copy.gif',
+						/*'image': 'http://uberdiesel.org/uberdieselmedia/layer1copy.gif',*/
                         autostart: true,
                         //file: "http://uberdiesel.org/zoids.mp4",
                         //file: "http://weyland.be/files/mp4/rf-family.guy.s07e01.proper.avi.mp4",
