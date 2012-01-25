@@ -34,8 +34,9 @@
                         height: 562,
                         width: 1000,
                         modes: [
-                            {type: 'flash', src: 'player.swf'},
-                            {type: 'html5'}                        ],
+                            {type: 'html5'},
+                            {type: 'flash', src: 'player.swf'}    
+						],
 						events: {
 							onComplete: function() {
 								<? if(isset($next)){?>
