@@ -77,7 +77,7 @@ class SickBeard_DB extends SQLite3{
 	
 	function get_episode_info($episode_id){
 		$result = $this->query(
-			"SELECT e.*, s.show_name 
+			"SELECT e.*, s.show_name, s.tvdb_id as tvdb_id
 			FROM tv_episodes e,tv_shows s 
 			WHERE episode_id=".$episode_id."
 			AND s.tvdb_id = e.showid"

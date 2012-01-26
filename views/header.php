@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/jwplayer.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <style>
 		#episode {
 			margin: 0 auto;
@@ -46,6 +47,20 @@
             </div>
         </div>
         -->
+        <div class="m_link">
+            <div class="userButton">
+            	<div>
+                	Player Type:
+                    <a onClick="set_player_type('html5',true);">html5</a> | 
+                    <a onClick="set_player_type('flash',true);">flash</a> 
+                </div>
+                <!-- <div>
+                	autoplay:
+                    <a onClick="set_autoplay(true);">on</a> | 
+                    <a onClick="set_autoplay(false);">off</a> 
+                </div> -->
+            </div>
+        </div>
         <div class="header_links">
             <a href="index.php?view=tv">TV Shows</a>
             <a href="index.php?view=latest_episodes">Latest</a>

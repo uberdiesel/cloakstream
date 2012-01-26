@@ -21,22 +21,15 @@
                 </p>                
                 <script type="text/javascript">
                     jwplayer("mediaplayer").setup({
-                        //file: "stream.php?c=<?=$code?>",
                         file: "<?=$url?>",
 						/*'image': 'http://uberdiesel.org/uberdieselmedia/layer1copy.gif',*/
                         autostart: true,
-                        //file: "http://uberdiesel.org/zoids.mp4",
-                        //file: "http://weyland.be/files/mp4/rf-family.guy.s07e01.proper.avi.mp4",
-                        //provider: "video",
 						'provider': 'http',
 						'http.startparam': 'start',
 						'menu': false,
                         height: 562,
                         width: 1000,
-                        modes: [
-                            {type: 'html5'},
-                            {type: 'flash', src: 'player.swf'}    
-						],
+                        modes: get_player_type(),
 						events: {
 							onComplete: function() {
 								<? if(isset($next)){?>
@@ -46,6 +39,9 @@
 						}
 
                     });
+
+
+
                 </script>
             </div>
    		</div>
