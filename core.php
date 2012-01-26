@@ -34,4 +34,32 @@ class Core {
 		$begin->add($date);
 		return $begin;
 	}
+	
+	function check_version(){
+		$current = NULL;
+		exec('git log -n1 --pretty="%H"',$current);	
+		$current = $current[0];
+		$commits = file_get_contents("https://api.github.com/repos/uberdiesel/cloakstream/commits");
+		$commits = json_decode($commits);
+		//print_r($commits);
+		$count = 0;
+		foreach($commits as $commit){
+			if($commit->sha == $current)
+				break;
+			$count++;	
+		}
+		
+		echo $count;
+		
+		return $current[0];
+	}
+	
+	function update(){
+		$del_install = false;
+		if(!file_exists("install.php") && file_exists("config.php"))
+			$del_install = true;
+		exec("git pull origin master");	
+		if($del_install)
+			unlink("install.php");
+	}
 }
