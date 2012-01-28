@@ -75,6 +75,11 @@ This section should be addeed to your apache virtual host settings<br>
 	AuthTokenTimeout      10800
 &lt;/Location&gt;
 </pre>
+<br/>
+then restart apache
+<pre>sudo service apache2 restart</pre>
+
+<br/>
         
         <?
 		$config_data = <<<CONF
