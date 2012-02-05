@@ -51,7 +51,8 @@ class SickBeard_DB extends SQLite3{
 			FROM tv_episodes 
 			WHERE location!='' 
 				AND location LIKE '%mp4%' 
-				AND showid = ".$show_id
+				AND showid = ".$show_id."
+			ORDER BY airdate"
 		);
 		$result = array();
 		while($row = $rows->fetchArray(SQLITE3_ASSOC) ){
@@ -94,7 +95,9 @@ class SickBeard_DB extends SQLite3{
 			FROM tv_episodes e, tv_episodes e2
 			WHERE e.showid = e2.showid
 				AND e.location LIKE '%.mp4' 
-				AND e2.episode_id=".$episode_id);
+				AND e2.episode_id=".$episode_id."
+			ORDER BY e.airdate"
+			);
 		$episodes = array();
 		while($row = $result->fetchArray()){
 			array_push($episodes,$row['episode_id']);
