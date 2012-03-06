@@ -34,6 +34,12 @@ class Core {
 		$begin->add($date);
 		return $begin;
 	}
+
+	function datetime_to_ordinal($datetime){
+		$begin = new DateTime('0001-01-00');
+		$interval = $datetime->diff($begin);
+		return $interval->days;		
+	}
 	
 	function check_version(){
 		$current = NULL;

@@ -285,6 +285,18 @@ h1 a{
 	line-height: 65px;
 	border-top: 1px solid #acacac;
 }
+.date_row{
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background: #304872;
+	color:white;
+	height: 65px;
+	line-height: 65px;
+	border-top: 1px solid #acacac;
+}
 .epBottom{
 	width: 100%;
 	border-top: 1px solid #acacac;
@@ -332,7 +344,7 @@ h1 a{
 }
 .epDate{
 	float: left;
-	width: 70px;
+	width: 100px;
 	height: 65px;
 	padding-left: 35px;
 }

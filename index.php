@@ -14,6 +14,19 @@ if(isset($_GET['view'])){
 		echo "<pre>";
 		print_r($episodes);
 		echo "</pre>";*/
+	} else if ($_GET['view']=="upcoming_episodes"){
+	
+		$eps = $db->upcoming_episodes();
+		$episodes = array();
+		foreach($eps as $row){
+			if(!isset($episodes[$row['airdate']]))
+				$episodes[$row['airdate']] = array();
+			array_push($episodes[$row['airdate']] ,$row);	
+		}
+		$title = "Upcoming Episodes";
+#		print_r($episodes);
+		include("views/upcoming.php");
+
 	} else if ($_GET['view']=="tv"){
 	
 		$shows = $db->get_shows();

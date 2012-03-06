@@ -140,5 +140,24 @@ class SickBeard_DB extends SQLite3{
 		$rows->finalize();
 		return $result;
 	}
+	
+	function upcoming_episodes($limit = NULL){
+		$rows = $this->query("
+			SELECT * 
+			FROM tv_episodes e, tv_shows s
+			WHERE s.tvdb_id = e.showid
+				AND e.airdate >= ".Core::datetime_to_ordinal(new DateTime("today"))."
+				AND e.airdate < ".Core::datetime_to_ordinal(new DateTime("today + 7days"))."
+			ORDER BY e.airdate ASC 
+			"
+		);
+		$result = array();
+		while($row = $rows->fetchArray(SQLITE3_ASSOC) ){
+			array_push($result,$row);
+		}
+		
+		$rows->finalize();
+		return $result;
+	}
 }
 
