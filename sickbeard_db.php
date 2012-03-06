@@ -130,7 +130,7 @@ class SickBeard_DB extends SQLite3{
 			WHERE e.location LIKE '%.mp4' 
 				AND s.tvdb_id = e.showid
 			ORDER BY e.airdate DESC 
-			LIMIT 10"
+			LIMIT 25"
 		);
 		$result = array();
 		while($row = $rows->fetchArray(SQLITE3_ASSOC) ){
