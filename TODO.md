@@ -2,6 +2,7 @@
 * clean up CSS in the views
 * clean up player controls
 * add option for turning on or off autoplay
+* break up episode list by seasons
 
 ## Later
 * control panel for changing config?
