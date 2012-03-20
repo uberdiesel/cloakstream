@@ -3,6 +3,7 @@
 * clean up player controls
 * add option for turning on or off autoplay
 * break up episode list by seasons
+* highlight active player type
 
 ## Later
 * control panel for changing config?
