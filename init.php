@@ -26,5 +26,5 @@ include_once("config.php");
 	
 	$core = new Core();
 	$db = new SickBeard_DB($config['db_path']);
-	
+    $movie_dir = $config['movie_path'];	
 	
