@@ -69,8 +69,8 @@
                 <div class="<? if(($i%2)==0) echo "epEven"; else echo "epOdd";?>">
                     <? if(file_exists('show_images/'.$row['tvdb_id'].'.banner.jpg')) { ?>
                     <div class="showimage siright">
-                        <img height="75" src='show_images/<?=$row['tvdb_id']?>.banner.jpg' title="<?=$row['show_name']?>" />
-                        <div class="imageover">&nbsp;</div>
+                        <a href="index.php?t=<?=$row['tvdb_id']?>"><img height="75" src='show_images/<?=$row['tvdb_id']?>.banner.jpg' title="<?=$row['show_name']?>" />
+                        <div class="imageover"></div></a>
                     </div>
                     <? } ?>
                     <p class="epDate" title="<?=$core->ordinal_to_datetime($row['airdate'])->format('l, M jS')?>">
