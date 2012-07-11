@@ -1,15 +1,18 @@
 #CloakStream
 
-CloakStream is a php web frontend for an existing Sick-Beard installation for the purpose of video streaming.
+CloakStream is a php web frontend for an existing Sick-Beard and/or CouchPotatoServer installation for the purpose of video streaming.
+
 
 ##Requirements
 * Apache with PHP and SQLite3 support
 * [mod_auth_token](http://code.google.com/p/mod-auth-token/)
 * [mod_h264_streaming](http://h264.code-shop.com/trac/wiki/Mod-H264-Streaming-Apache-Version2)
-* an existing [Sick-Beard](https://github.com/midgetspy/Sick-Beard) installation (with at least one show in the db)
+* at least one or both of the following:
+ * an existing [Sick-Beard](https://github.com/midgetspy/Sick-Beard) installation (with at least one show in the db) 
+ * an existing [CouchPotatoServer](https://github.com/RuudBurger/CouchPotatoServer) installation 
 
 ##How it works
-* CloakStream looks through your [Sick-Beard](https://github.com/midgetspy/Sick-Beard) database for any files with the .mp4 extension, and serves them up to you in the browser.
+* CloakStream looks through your [Sick-Beard](https://github.com/midgetspy/Sick-Beard) and or [CouchPotatoServer](https://github.com/RuudBurger/CouchPotatoServer) databases for any files with the .mp4 extension, and serves them up to you in the browser.
 * You can use a video conversion tool such as HandBrake to convert your existing library to mp4 with h.x264 encoding `HandBrakeCLI -i file.avi -o 
 file.mp4 -e x264`
 
