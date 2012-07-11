@@ -33,6 +33,48 @@ if(isset($_GET['view'])){
 		$title = "Show List";
 		//print_r($shows);
 		include("views/tv.php");
+	} else if ($_GET['view']=="movies"){
+		$movies = $cp_db->get_files();
+		$title = "Movies";
+		
+		include("views/movies.php");
+	}
+} else if(isset($_GET['m'])){ 
+	if(is_numeric($_GET['m'])){
+		
+		$id = $_GET['m'];
+		$code = sha1($id.time());
+		/*$_SESSION['coded'] = array(
+			'v' => $id,
+			'code' => $code
+		);*/
+		
+		$movie = $cp_db->get_movie($id);
+		
+		$secret = $config['AuthTokenSecret'];             // Same as AuthTokenSecret
+		$protectedPath = $config['AuthTokenPrefix'];        // Same as AuthTokenPrefix
+		$ipLimitation = false;                 // Same as AuthTokenLimitByIp
+		$hexTime = dechex(time());             // Time in Hexadecimal      
+		$fileName = $movie['path'];
+		
+		// Let's generate the token depending if we set AuthTokenLimitByIp
+		if ($ipLimitation) {
+		  $token = md5($secret . $fileName . $hexTime . $_SERVER['REMOTE_ADDR']);
+		}
+		else {
+		  $token = md5($secret . $fileName. $hexTime);
+		}
+		
+		// We build the url
+		$url = $protectedPath . $token. "/" . $hexTime . $fileName;
+		//echo $url;
+		
+		//$nav = $db->get_episode_nav($ep['episode_id']);
+		//extract($nav);
+		
+		$title = $movie['title']." (".$movie['year'].")";
+		
+		include("views/movie.php");
 	}
 } else if(isset($_GET['v'])){ 
 	if(is_numeric($_GET['v'])){

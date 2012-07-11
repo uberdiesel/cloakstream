@@ -62,12 +62,10 @@
             </div>
         </div>
         <div class="header_links">
+            <a href="index.php?view=movies">Movies</a>
             <a href="index.php?view=tv">TV Shows</a>
-            <a href="index.php?view=latest_episodes">Latest</a>
-            <a href="index.php?view=upcoming_episodes">Upcoming</a>
-            <!-- MOVIES
-            <a href="movies">Movies</a>	
-            -->
+            <a href="index.php?view=latest_episodes">Latest TV</a>
+            <a href="index.php?view=upcoming_episodes">Upcoming TV</a>
             <!-- OLD QUEUE FUNCTIONALITY	 
             <a href="#" id="que">
                 Queue<span id="queuecount-bar" style="display: none;"> (0)</span>

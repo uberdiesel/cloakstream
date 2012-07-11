@@ -1,6 +1,11 @@
 <? include('header.php') ?>
 	<!-- HEADER END -->
 	<div class="clear"></div>
+  
+  
+  <!--
+  <? print_r($movies); ?>
+  -->
 	
     <!-- CONTENT START -->
     <div id="content">
@@ -75,13 +80,16 @@
             </style>
             <div class="moviegrid">
                 <ul>
-                	<? foreach($movies as $i=>$movie){ ?>
-                    <a href="<?=watch_url?>">
+                	<? foreach($movies as $i=>$movie){ 
+									$poster = $cp_db->get_posters($movie['library_id']);
+									$poster = substr($poster['path'],strrpos($poster['path'],"/"));
+									?>
+                    <a href="index.php?m=<?=$movie['id']?>">
                         <li>
-                            <div class="moviecontainer" onmouseover="document.getElementById('m<?=$i?>').style.backgroundColor='rgba(51,51,51,1)';" onmouseout="document.getElementById('m0').style.backgroundColor='rgba(51,51,51,0.7)';">
-                                <div class="year"><?=year?></div>
-                                <div class="poster" style="background-image: url(<?=poster?>);">
-                                    <div class="moviename" id="m<?=$i?>"><?=title?></div>
+                            <div class="moviecontainer" onmouseover="document.getElementById('m<?=$movie['id']?>').style.backgroundColor='rgba(51,51,51,1)';" onmouseout="document.getElementById('m<?=$movie['id']?>').style.backgroundColor='rgba(51,51,51,0.7)';">
+                                <div class="year"><?=$movie['year']?></div>
+                                <div class="poster" style="background-image: url(movie_images<?=$poster?>);">
+                                    <div class="moviename" id="m<?=$movie['id']?>"><?=$movie['title']?></div>
                                 </div>
                             </div>
                         </li>

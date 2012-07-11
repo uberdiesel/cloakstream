@@ -23,8 +23,9 @@ include_once("config.php");
 
 	include_once("core.php");
 	include_once("sickbeard_db.php");
+	include_once("couchpotato_db.php");
 	
 	$core = new Core();
 	$db = new SickBeard_DB($config['db_path']);
-	
+	$cp_db = new CouchPotato_DB($config['cp_db_path']);
 	
