@@ -2,6 +2,11 @@
 
 include_once("init.php");
 session_start();
+if(!isset($_SESSION['username'])){
+    print_r("testing");
+	header("Location: login.php");
+   
+}
 
 if(isset($_GET['view'])){
 	if($_GET['view']=="latest_episodes"){
@@ -58,7 +63,7 @@ if(isset($_GET['view'])){
 		$ipLimitation = false;                 // Same as AuthTokenLimitByIp
 		$hexTime = dechex(time());             // Time in Hexadecimal      
 		$fileName = $ep['location'];
-	    print_r($fileName);	
+	    //print_r($fileName);	
 		// Let's generate the token depending if we set AuthTokenLimitByIp
 		if ($ipLimitation) {
 		  $token = md5($secret . $fileName . $hexTime . $_SERVER['REMOTE_ADDR']);
@@ -137,16 +142,43 @@ function find_movies($dir_name)
         
         if (is_dir($file))
         {
-            //$filnames[]=find_movies($file);
-            array_push( $filenames,$file);
+            if (find_mp4($file)){
+                array_push( $filenames,$file);
+            }
         }
 
         if (strstr($file,".mp4") )
         {
             array_push($filenames,$file);
         }
+        chdir($dir_name);
     }
 
     return $filenames;
+}
+
+function find_mp4($dir_name)
+{
+    chdir($dir_name);
+    $movie_dir =opendir(".");
+    $found=0;
+    while (($file = readdir($movie_dir))!== false )
+    {
+        if ($file[0]=='.'){
+            continue;
+        } 
+        
+        if (is_dir($file))
+        {
+           $found=find_mp4($file); 
+        }
+
+        if (strstr($file,".mp4") )
+        {
+           return 1;
+        }
+
+    }
+    return $found;
 }
 ?>
