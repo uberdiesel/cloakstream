@@ -35,8 +35,8 @@ if(isset($_GET['view'])){
 		include("views/tv.php");
 	}
 } else if(isset($_GET['v'])){ 
-	if(is_numeric($_GET['v'])){
-		
+	if(is_numeric($_GET['v']) || $_GET['v']=="random"){
+
 		$id = $_GET['v'];
 		if($id == "random"){
 			$id = $db->get_random_eid();
