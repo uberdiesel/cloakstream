@@ -36,3 +36,9 @@ function set_player_type(type,re_load){
 		location.reload(true);
 }
 
+var player = get_player_type();
+if(player =="html5")
+	$("#html5_type").addClass("activePlayer");
+else if(player =="flash")
+	$("#flash_type").addClass("activePlayer");
+

@@ -51,8 +51,8 @@
             <div class="userButton">
             	<div>
                 	Player Type:
-                    <a onClick="set_player_type('html5',true);">html5</a> | 
-                    <a onClick="set_player_type('flash',true);">flash</a> 
+                    <a id="html5_type" onClick="set_player_type('html5',true);">html5</a> | 
+                    <a id="flash_type" onClick="set_player_type('flash',true);">flash</a> 
                 </div>
                 <!-- <div>
                 	autoplay:

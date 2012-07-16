@@ -572,6 +572,10 @@ a.spoiler{
 	cursor: pointer;
 }
 
+.activePlayer {
+	text-decoration: bold;
+}
+
 .boardsDaddy {
 	margin-left:30px;
 	margin-right:40px;
