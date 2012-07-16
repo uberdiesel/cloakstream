@@ -1,4 +1,10 @@
+#cloakstream files
 show_images
 config.php
+
+#eclipse files
 .project
-*.sublime-*
+
+#sublime text 2 files
+*.sublime-project
+*.sublime-workspace
