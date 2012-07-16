@@ -39,7 +39,7 @@ function set_player_type(type,re_load){
 $(function(){
 	var player = get_player_type();
 	player = player[0].type;
-	if(player =="html5"){}
+	if(player =="html5")
 		$("#html5_type").addClass("activePlayer");
 	else if(player =="flash")
 		$("#flash_type").addClass("activePlayer");
