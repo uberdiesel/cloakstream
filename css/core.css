@@ -573,7 +573,7 @@ a.spoiler{
 }
 
 .activePlayer {
-	text-decoration: bold;
+	font-weight:bold;
 }
 
 .boardsDaddy {
