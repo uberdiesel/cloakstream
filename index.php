@@ -38,6 +38,15 @@ if(isset($_GET['view'])){
 	if(is_numeric($_GET['v'])){
 		
 		$id = $_GET['v'];
+		if($id == "random"){
+			$id = $db->get_random_eid();
+			$prev = NULL;
+			$next="random";
+		} else {
+			$nav = $db->get_episode_nav($id);
+			extract($nav);
+		}
+
 		$code = sha1($id.time());
 		$_SESSION['coded'] = array(
 			'v' => $id,
@@ -45,7 +54,9 @@ if(isset($_GET['view'])){
 		);
 		
 		$ep = $db->get_episode_info($id);
+		$title = $ep['show_name']." - ".$ep['season']."x".$ep['episode'];
 		
+		// URL GENERATION
 		$secret = $config['AuthTokenSecret'];             // Same as AuthTokenSecret
 		$protectedPath = $config['AuthTokenPrefix'];        // Same as AuthTokenPrefix
 		$ipLimitation = false;                 // Same as AuthTokenLimitByIp
@@ -55,19 +66,13 @@ if(isset($_GET['view'])){
 		// Let's generate the token depending if we set AuthTokenLimitByIp
 		if ($ipLimitation) {
 		  $token = md5($secret . $fileName . $hexTime . $_SERVER['REMOTE_ADDR']);
-		}
-		else {
+		} else {
 		  $token = md5($secret . $fileName. $hexTime);
 		}
 		
 		// We build the url
 		$url = $protectedPath . $token. "/" . $hexTime . $fileName;
 		//echo $url;
-		
-		$nav = $db->get_episode_nav($ep['episode_id']);
-		extract($nav);
-		
-		$title = $ep['show_name']." - ".$ep['season']."x".$ep['episode'];
 		
 		include("views/episode.php");
 	}

@@ -88,6 +88,21 @@ class SickBeard_DB extends SQLite3{
 		$result->finalize();
 		return $row;
 	}
+
+	function get_random_eid(){
+		$rows = $this->query(
+			"SELECT episode_id 
+			FROM tv_episodes 
+			WHERE location!='' 
+				AND location LIKE '%mp4%'"
+		);
+		$result = array();
+		foreach($row = $rows->fetchArray()){
+			array_push($result, $row)
+		}
+		shuffle($result);
+		return isset($result[0])?$result[0];null;
+	}
 	
 	function get_episode_nav($episode_id){
 		$result = $this->query(
