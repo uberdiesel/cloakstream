@@ -98,7 +98,7 @@ class SickBeard_DB extends SQLite3{
 		);
 		$result = array();
 		foreach($row = $rows->fetchArray()){
-			array_push($result, $row)
+			array_push($result, $row);
 		}
 		shuffle($result);
 		return isset($result[0])?$result[0];null;
