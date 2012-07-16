@@ -97,7 +97,7 @@ class SickBeard_DB extends SQLite3{
 				AND location LIKE '%mp4%'"
 		);
 		$result = array();
-		foreach($row = $rows->fetchArray()){
+		while($row = $rows->fetchArray()){
 			array_push($result, $row);
 		}
 		shuffle($result);
