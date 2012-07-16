@@ -2,11 +2,14 @@
 
 include_once("init.php");
 session_start();
+
+/*
 if(!isset($_SESSION['username'])){
     print_r("testing");
 	header("Location: login.php");
    
 }
+*/
 
 if(isset($_GET['view'])){
 	if($_GET['view']=="latest_episodes"){
