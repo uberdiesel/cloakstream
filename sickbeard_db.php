@@ -101,7 +101,7 @@ class SickBeard_DB extends SQLite3{
 			array_push($result, $row);
 		}
 		shuffle($result);
-		return isset($result[0])?$result[0];null;
+		return isset($result[0])?$result[0]:null;
 	}
 	
 	function get_episode_nav($episode_id){
