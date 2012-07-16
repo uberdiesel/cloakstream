@@ -32,6 +32,7 @@
     </div>
     -->
 	<script>
+	/*
 	$('a#que').click(function () {
 	$('#dimmed').fadeIn(400);
 	return false;
@@ -138,7 +139,7 @@
 	$('.rightbutton').first().trigger('click');
 	
 	});
-	
+	*/
 	
 	</script>
 </body>
