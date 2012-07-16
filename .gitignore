@@ -1,3 +1,4 @@
 show_images
 config.php
 .project
+*.sublime-*
