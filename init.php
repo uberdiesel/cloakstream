@@ -27,4 +27,7 @@ include_once("config.php");
 	$core = new Core();
 	$db = new SickBeard_DB($config['db_path']);
     $movie_dir = $config['movie_dir'];	
-	
+
+    $mysql_db = $config['mysql_db'];
+    $mysql_user = $config['mysql_user'];
+    $mysql_pass = $config['mysql_pass'];
