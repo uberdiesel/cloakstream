@@ -52,7 +52,13 @@ if(isset($_POST['install'])){
 	
 	$sickbeard_images = $sickbeard_dir."cache/images";	
 	good_file($sickbeard_images,"Sickbeard's images cache",$errors);
+    
+    $movie_dir = $_POST['movie_dir'];
+	good_file($movie_dir,"Movie Directory",$errors);
 	
+    $mysql_db = $_POST['mysql_db'];
+    $mysql_user = $_POST['mysql_user'];
+    $mysql_pass = $_POST['mysql_pass'];
 	
 	
 	if(count($errors)==0){
@@ -109,8 +115,21 @@ then restart apache
  */
  	\$config['sickbeard_dir'] = "$sickbeard_dir";
 	\$config['db_path'] = \$config['sickbeard_dir']."sickbeard.db";
+
+/* Movie PATH 
+ * full path required WITH TRAILING SLASH
+ */
+ \$config['movie_dir'] = "$movie_dir";
+    
+/* mysql settings 
+ * mysql must have a database with a table "users" with columns "username"
+ * and "password". The password colum should be a varchar(32) using md5 hashing
+ */
+\$config['mysql_db'] = "$mysql_db";
+\$config['mysql_user'] = "$mysql_user";
+\$config['mysql_pass'] = "$mysql_pass";
 CONF;
-		?>
+?>
 		CONFIG FILE<br>
 		<pre style="background-color:#CCCCCC"><?=str_replace("<","&lt;",$config_data)?>
 		</pre>
@@ -155,6 +174,17 @@ CONF;
         is install directory writable by webserver (writable by user <?=exec("whoami")?>)?: <?=($info['cwd_writable'] ? '<span style="color:green">yes' : '<span style="color:red">no')?></span><br>
         Full path to SickBeard folder (with trailing slash):<br>
         <input type="text" name="sickbeard_dir" style="width:400px"/><br><br>
+        Full path to Movie folder (with trailing slash):<br>
+        <input type="text" name="movie_dir" style="width:400px"/><br><br>
+       
+        <h2>mysql settings</h2>
+        database:<br>
+        <input type="text" name="mysql_db" /><br>
+        user:<br>
+        <input type="text" name="mysql_user" /><br>
+        password:<br>
+        <input type="password" name="mysql_pass" /><br>
+       
         <h2>mod_auth_token settings</h2>
         AuthTokenSecret (secret string):<br>
         <input type="text" name="AuthTokenSecret" /><br>

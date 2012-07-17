@@ -24,3 +24,8 @@
  */
  	$config['sickbeard_dir'] = "/full/path/to/Sick-Beard/";
 	$config['db_path'] = $config['sickbeard_dir']."sickbeard.db";
+    
+/* Movie PATH 
+ * full path required WITH TRAILING SLASH
+ */
+    $config['movie_path'] = "/full/path/to/movies/";

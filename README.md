@@ -7,6 +7,11 @@ CloakStream is a php web frontend for an existing Sick-Beard installation for th
 * [mod_auth_token](http://code.google.com/p/mod-auth-token/)
 * [mod_h264_streaming](http://h264.code-shop.com/trac/wiki/Mod-H264-Streaming-Apache-Version2)
 * an existing [Sick-Beard](https://github.com/midgetspy/Sick-Beard) installation (with at least one show in the db)
+* A Directory With movies
+* mysql server 
+    - database must have a users table
+    - users table must have fields username and password
+    - password must be md5 encrypted
 
 ##How it works
 * CloakStream looks through your [Sick-Beard](https://github.com/midgetspy/Sick-Beard) database for any files with the .mp4 extension, and serves them up to you in the browser.
