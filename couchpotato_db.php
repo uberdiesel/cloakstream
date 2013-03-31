@@ -72,7 +72,8 @@ class CouchPotato_DB extends SQLite3{
 			WHERE
 			F.id = LF.file_id AND
 			LF.library_id = '$lid' AND
-			F.type_id = '1'"
+			(F.type_id = '1' OR F.type_id='2')
+			ORDER BY type_id"
 			);
 		
 		$result = $rows->fetchArray(SQLITE3_ASSOC);
