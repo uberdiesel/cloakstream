@@ -63,6 +63,7 @@
         </div>
         <div class="header_links">
             <a href="index.php?view=tv">TV Shows</a>
+            <a href="index.php?v=random">Random</a>
             <a href="index.php?view=latest_episodes">Latest</a>
             <a href="index.php?view=upcoming_episodes">Upcoming</a>
             <!-- MOVIES
