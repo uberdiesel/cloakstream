@@ -6,6 +6,7 @@ class SickBeard_DB extends SQLite3{
 		if($db_path == NULL)
 			die('db not set');
 		$this->open($db_path);
+		$this->busyTimeout(10000);
 	}
 	
 	function get_shows($query = NULL){

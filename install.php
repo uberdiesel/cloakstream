@@ -2,6 +2,20 @@
 
 /*ini_set('display_errors', 1); 
 error_reporting(E_ALL);	*/
+
+
+if(file_exists("config.php")){?>
+	<div style="width:100%; padding:20px; background-color:red; text-align:center;">
+	YOU ALREADY HAVE A CONFIG FILE (config.php) <br>
+	YOU MUST DELETE IT TO CONTINUE WITH THIS AUTOMATED INSTALLER.
+	</div>
+	<?
+	die();
+}
+
+
+
+
 			
 function good_file($file,$human_name,&$errors){
 	if(!file_exists($file))
@@ -142,13 +156,6 @@ CONF;
 	//exec();
 	?>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-    	<? if(file_exists("config.php")){?>
-        <div style="width:100%; padding:20px; background-color:red; text-align:center;">
-        YOU ALREADY HAVE A CONFIG FILE (config.php) <br>
-		HAVE YOU ALREADY CONFIGURED CLOAKSTREAM?<br>
-        IF SO, DELETE THIS FILE FOR SECURITY REASONS (install.php)
-        </div> 
-        <? } ?>
         <h2>Prerequisites:</h2>
         is <a href="http://code.google.com/p/mod-auth-token/">mod_auth_token</a> installed?: <?=($info['mod_auth_token'] ? '<span style="color:green">yes' : '<span style="color:red">no')?></span><br>
         is <a href="http://h264.code-shop.com/trac/wiki/Mod-H264-Streaming-Apache-Version2">mod_h264_streaming</a> installed?: <?=($info['mod_h264_streaming'] ? '<span style="color:green">yes' : '<span style="color:red">no')?></span><br>
