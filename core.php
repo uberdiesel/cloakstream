@@ -57,6 +57,10 @@ class Core {
 				break;
 			$count++;	
 		}
+
+		//if not found, then you're ahead
+		if($count == count($commits))
+			$count = -1;
 		
 		//echo $count;
 		
