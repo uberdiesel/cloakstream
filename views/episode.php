@@ -22,7 +22,7 @@
                 <script type="text/javascript">
                     jwplayer("mediaplayer").setup({
                         file: "<?=$url?>",
-						/*'image': 'http://uberdiesel.org/uberdieselmedia/layer1copy.gif',*/
+						"image": "<?=$thumb_url?>",
                         autostart: true,
 						'provider': 'http',
 						'http.startparam': 'start',

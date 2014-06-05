@@ -36,7 +36,7 @@ if(isset($_GET['view'])){
 	}
 } else if(isset($_GET['v'])){ 
 	if(is_numeric($_GET['v'])){
-		
+
 		$id = $_GET['v'];
 		$code = sha1($id.time());
 		$_SESSION['coded'] = array(
@@ -45,29 +45,21 @@ if(isset($_GET['view'])){
 		);
 		
 		$ep = $db->get_episode_info($id);
-		
-		$secret = $config['AuthTokenSecret'];             // Same as AuthTokenSecret
-		$protectedPath = $config['AuthTokenPrefix'];        // Same as AuthTokenPrefix
-		$ipLimitation = false;                 // Same as AuthTokenLimitByIp
-		$hexTime = dechex(time());             // Time in Hexadecimal      
-		$fileName = $ep['location'];
-		
-		// Let's generate the token depending if we set AuthTokenLimitByIp
-		if ($ipLimitation) {
-		  $token = md5($secret . $fileName . $hexTime . $_SERVER['REMOTE_ADDR']);
-		}
-		else {
-		  $token = md5($secret . $fileName. $hexTime);
-		}
-		
-		// We build the url
-		$url = $protectedPath . $token. "/" . $hexTime . $fileName;
-		//echo $url;
-		
+
 		$nav = $db->get_episode_nav($ep['episode_id']);
 		extract($nav);
-		
+
 		$title = $ep['show_name']." - ".$ep['season']."x".$ep['episode'];
+		
+		// URL GENERATION
+		$fileName = $ep['location'];
+		$url = $core->serve_file($fileName);
+
+		//build thumburl
+		$file_info = pathinfo($fileName);
+		$thumbFile = $file_info['dirname'].'/'.$file_info['filename']."-thumb.jpg";
+		$thumb = $file_info['dirname'].'/'.$file_info['filename']."-thumb.jpg";
+		$thumb_url = (file_exists($thumb)) ? $core->serve_file($thumb) : $config['default_thumb'];
 		
 		include("views/episode.php");
 	}
@@ -79,6 +71,10 @@ if(isset($_GET['view'])){
 		
 		include("views/show.php");
 	}
+} else if(isset($_GET['version'])){
+	echo "<pre>";
+	print_r($core->check_version());
+	echo "</pre>";
 } else {
 	header("Location: ".$_SERVER['PHP_SELF']."?view=tv");
 } 
