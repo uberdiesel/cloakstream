@@ -61,11 +61,11 @@
             <!-- RESULTS START -->
 
             <div id="results_container"><br>
-                <? foreach($episodes as $j=>$date){?>
+                <? /*foreach($episodes as $j=>$date){*/?>
                 <!--<div class="date_row">
-                        <?=$core->ordinal_to_datetime($j)->format('l, M jS')?>
+                        <?//echo $core->ordinal_to_datetime($j)->format('l, M jS')?>
                 </div>-->
-                <? foreach($date as $i=>$row){?>
+                <? foreach($episodes as $i=>$row){?>
                 <div class="<? if(($i%2)==0) echo "epEven"; else echo "epOdd";?>">
                     <? if(file_exists('show_images/'.$row['tvdb_id'].'.banner.jpg')) { ?>
                     <div class="showimage siright">
@@ -80,7 +80,7 @@
                         <a href="javascript:void(0);"><?=$row['show_name']?>: <?=$row['season']?>x<?=$row['episode']?> - <?=$row['name']?></a>
                     </p>
                 </div>
-                <? }?>
+                <?/* }*/?>
                 <? }?>
     		</div>
             <!-- RESULTS END -->
